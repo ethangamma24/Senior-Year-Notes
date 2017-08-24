@@ -1,0 +1,56 @@
+https://cse.sc.edu/~fenner/csce355
+
+Mathematical Concepts:
+
+  Sets
+  Functions
+  Relations
+  Basic Counting
+  Proof Techniques
+  Definitions
+  Induction
+
+  Sets:
+
+    - {3,5,6}: contains only 3, 5, and 6. = {6, 5, 3, 3}
+    - {(null), (null), {}}: contains only the empty set. Is equivalent to {(null)}
+    - A set is only determined by its elements, not the order of those elements.
+    - Extensionality Principle: If two sets A and B have the same elements, then they are equal.
+    - Definition: We write z E A to mean "z is a(n) {element|member} of A" (A is a set).
+      Otherwise, z !E A.
+
+    - Z+ = {1, 2, 3, ...} positive integers
+    - Z = {..., -3, -2, -1, 0, 1, 2, 3, ...} integers
+    - N = {0, 1, 2, 3, ...} natural numbers
+    - Q = {a/b : a, b E Z & b != 0} rational numbers (set former notation)
+    - R = real numbers
+
+    - Definition: Let A & B be sets. We say that A is a subset of B (A c B)
+      just when every element of A is also an element of B.
+      ~ Equivalent: B is a superset of A.
+      ~ Note: If A c B, and B c A, A = B (extensionality in disguise).
+      ~ For all z: z c A --> z c B
+
+    - Definition: A, B sets. A v B is the set of all things that are in A or in B.
+      A v B := {Z : Z c A || Z c B}.
+      A ^ B is the set of all things common to both A & B.
+      A ^ B := {Z : Z c A && Z c B}.
+      A \ B (A - B) (complement of B relative to A) := {Z : Z c A && Z !c B}.
+      A /\ B (symmetric difference) := {Z : (Z c A && Z !c B) || (Z c B && Z !c A)}.
+       ~ = (A \ B) v (B \ A) = (A v B) \ (A ^ B)
+
+    - Definition: Fix a set U (the "universe"). Let A c U. Let !A := U \ A
+
+    - Cartesian Product:
+      ~ If a & b are objects, then (a,b) is the ordered pair of a and b.
+      ~ (a,b) = (c,d) only when a = c & b = d. In particular, (a,b) = (b,a)
+        only if a = b.
+      ~ Repitition matters: (a,a) != (a) && (a,a) != {a}.
+      ~ Definition: A, B sets. AB := {(a,b) : a c A && b c B}
+        * Cartesian Product of A and B.
+        * A = {2,5}, B = {5,6,7}
+          AB = {(2,5),(2,6),(2,7),(5,5)(5,6),(5,7)}
+
+    - (a,b) := {{a},{a,b}}
+      ~ {a} defines the singleton of the pair.
+      ~ {a,b} defines the elements of the pair.
