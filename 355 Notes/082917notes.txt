@@ -1,0 +1,55 @@
+- Def: Let S be any set. Define 2^S (=P(S)), the powerset of S, to be the set of all subsets of S.
+  ~ S = {1,2,3}, 2^S = {{},{1},{2},{3}},{1,2},{1,3},{2,3},{1,2,3}}
+- Def: |S| is the number of elements in S (*cardinality* of S).
+  ~ In general, |2^S| = 2^|S|
+
+Relations:
+
+- Let x1,x2,...,xk be sets. A *relation* over x1,...,xk any subset of x1 * x2 * ... * xk. IF R c x1 * ... * x, then R is a k-ary relation.
+  ~ Here, x1 * x2 * ... * xk := {(x1,x2,...,xk) : x1 E X1, x2 E X2, ... , xk E Xk}
+  ~ |A x B| = |A| . |B|
+    |x1 * x2 * ... * xk| = |x1| * |x2| * ... * |xk|
+  ~ (x1,...,xk) == (y1,...,y2) if and only if x1 = y1, ..., xk = yk
+
+- Binary (2-ary) Relations
+  ~ R c X x Y
+    x E X
+    y E Y
+    x R y means (x,y) E R
+  ~ Ex: X = Y = R 
+    < c R x R
+    2 < (pi) means (2,(pi)) E <
+    < ("weird" less than) = {(x,y) : x,y E R && x < ("familiar" less than) y}
+  ~ X = set of all people
+    Y = set of all smartphones
+    owns E X x Y
+    owns = {(me|I,my phone),...)}
+    I own my phone
+  ~ X = Y : special case (from now on)
+    R c X x X is a binary relation on X.
+  ~ Take <, ≤, >, ≥, =, ≠ binary relations on R
+    * Def: R c X x X is:
+      1) Reflexive if: x R x for all x E X
+      2) Symmetric if: x R y --> y R x
+      3) Transitive if: x R y && y R z --> x R z
+
+  ~ 	Reflexive	Symmetric	Transitive
+    <	no		no		yes
+    ≤	yes		no		yes
+    >	no		no		yes
+    ≥	yes		no		yes
+    =	yes		yes		yes
+    ≠	no		yes		no
+
+  ~ R c X x Y, S c Y x Z
+    * S • R := {(x,z) E X x Z: (there exists) y E Y, (x,y) E R && (y,z) E S}
+    * S • R c X x Z (composition of S with R)
+  ~ R^-1 c Y x X
+    R^-1 := {(y,x) : (x,y) E R}
+    x R y <--> y R^-1 x
+    * owns^-1 = "is owned by
+  ~ Theorem: Let R c X x Y, S c Y x Z, T c Z x W (X,Y,Z,W are any sets)
+    1) (T • S) • R = T • (S • R) = {(X,W) E X x W : (there exists) (y E Y|z E Z|(X,Y) E R|(Y,Z) E S|(Z,W) E T)}
+    2) (S • R)^-1 = R^-1 • S^-1 = {(z,x) : z E Z, x E X, && (there exists) y E Y, (x,y) E R, (y,z) E S}
+    3) Define =x := E X x X where =x := {(x,x) : x E X}. Similarly, define =y.
+       R • =x = R && =y • R = R
