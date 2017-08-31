@@ -1,0 +1,58 @@
+Sets
+
+- A and B are *disjoint* when A ^ B = ø
+
+- A is a set, and R c A x A (binary relation on A)
+  ~ Def: R is an *equivalence relation* if and only if R is:
+    * reflexive
+    * symmetric
+    * transitive
+  ~ Ex: A = set of humans
+    * x R y means "x has same age (in years) as y"
+    * Partitions A into *equivalence classes*: Family of (pairwise) disjoint
+      nonempty subsets of A whose union is A (*partition* of A).
+    * So each element of A is in exactly one set in the partition. For an
+      equivalence relation R, x R y if and only if x & y belong to the same
+      member of the partition (equivalence class).
+    * =A : Equivalence classes are all *singletons* (1 element sets)
+    * A x A is an equivalence relation with *one* equivalence class (A itself).
+
+- x (squiggly =) y (mod n) means x-y is a multiple of n.
+
+- R c A x A is an *order relation* (or *ordering*) if and only if:
+  1) R is transitive
+  2) For any *distinct* x,y E A !(x R y && y R x) (anti-symmetry)
+  3) Either R is reflexive (non-strict ordering: "≤")
+     || R is antireflexive (x !R x for any x (strict ordering) : "<")
+  ~ If R is a *partial order relation*, for all x ≠ y, either x R y or y R x,
+    then R is a *total order* (linear order).
+
+Funtions
+
+- A function is just a kind of relation
+- A relation f is a function if for all x,y,z:
+  ~ If (x,y) E f && (x,z) E f, then y = z
+- Let f be a funtion. Define the domain of f (dom(f))
+  dom(f) = {x : (for some) y, (x,y) E f}
+- For all x E dom(f), there is exactly one y (unique y) such that (x,y) E f.
+  Denote this y by f(x)
+  ~ Ex: f = {(1,6),(2,5),(3,8),(4,6)}
+    dom(f) = {1,2,3,4}
+    f(3) = 8
+    f(1) = 6 = f(4)
+- We say f : x --> y (a codomain) to mean:
+  ~ f is a function, x dom(f), for any x E X, f(x) E y
+  ~ Ex: f:{1,2,3,4} --> {6,5,8,...}
+    The range of f is rng(f) := {y : (for some) x E dom(f), y = f(x)}
+  ~ A codomain is any superset of the range.
+- f,g functions:
+  ~ f º g := {(x,z) : (for some) y, (x,y) E g && (y,z) E f}
+- Fact: if g : X --> Y && f : Y --> Z, then f º g : X --> Z
+- A function f is one-to-one (injective) if f has no collisions
+  (for all x,y E dom(f), f(x) == f(y) --> x == y
+- f : x --> y "maps x into y"
+  f maps x *onto* y, when y = range(f)
+- f : x --> y onto (or f is *surjective*)
+  f is a *bijection* (one-to-one correspondence) if both one-to-one and onto
+  ~ Bijection implies f^-1 if a function, and f^-1 : y --> x
+- A bijection f : x --> x is called a permutation on x.
