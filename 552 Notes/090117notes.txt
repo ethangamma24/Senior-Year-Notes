@@ -1,0 +1,17 @@
+Pizza Simulator
+
+- Gameflow
+  ~ Make pizza (time limit)
+    * Instructions slowly move accross screen, and you don't know if you did it right or not until delivery.
+  ~ Deliver pizza following GPS
+    * Maybe have a texting/social media mechanic while driving?
+  ~ Success:
+    * Payment upon using proper ingredients
+    * Tip depends on speed of delivery
+  ~ Failure:
+    * No payment & beration
+
+- Pizza making:
+  ~ Select ingredients and drop them onto pizza
+  ~ Put pizza in oven to bake
+  
