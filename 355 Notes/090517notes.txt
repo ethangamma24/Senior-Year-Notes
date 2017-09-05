@@ -1,0 +1,61 @@
+x,y sets
+f : x --> y
+
+Notation:
+- For A c X, f(A) := {f(x) : x E A}
+  *image* of A under F
+- For B c Y, f^-1(B) := {x E X : f(x) E B}
+  *preimage* of B under f.
+- For y E Y, define f^-1(y) = f^-1({y})
+
+Suppose x,y are finite, say |x| = m, |y| = n (m,n E N).
+- How many functions x --> y are there?
+  ~ Answer: n^m
+- How many 1:1 functions?
+  ~ Assume (for the moment) n ≥ m
+
+Pigeonhole Principle: If x,y are finite and |x| > |y|, then no
+f : x --> y can be 1:1
+- Strong Pigeonhole Principle: x,y are finite, y!=0, and f : x --> y
+  is arbitrary. There exists y E Y such that |f^-1(y)| ≥ |X|/|Y|
+  ~ Proof: Suppose not. I.e.: (for all) y E Y, |f^-1(y)| < (X)/|Y|.
+    Then we have: |X| = (sigma y E Y)|f^-1(y)| < (sigma y E Y)|X|/|Y|
+    = |Y|(|X|/|Y|) = |X|, which is impossible. Thus, (for some) y E Y
+    * Proof by Contradiction:
+      1) Assume negation of what you want to prove.
+      2) Derive a contradiction from this assumption.
+      3) Conclude that what you were to prove must be true.
+
+Notation:
+- For n E N, [n] = {1,2,3,...,n}
+  ~ Note: [0] == {ø}, [1] == {1}, etc.
+- For x E N and A is a set:
+  ~ Define (A) = {B c A : |B| = k}
+	   (k)
+    * How big? (only depends on |A|)
+    * Say |A| = n (n E N).
+    * There are n! many 1:1 funtions from x --> x (if x if finite and
+      |X| = n). If f : x --> x is 1:1, then f must also be onto (x finite).
+
+Definition: A *permutation* on a set x is a bijection x --> x.
+	    If |X| = n (finite), then there are n! permutations on X.
+
+|(A)| = ? (|A| = n)
+|(k)|
+- f({k}) c A && |f({k})| = k
+- There are n!/(n-k)! 1:1 functions [k] --> A.
+- For each B c A with |B| = k, there are k! many functions [k] --> B.
+  So in the count of 1:1 functions [k] --> A, we're counting each k-element
+  subset B exactly k! times. Thus: n!/(n-k)! = k! * |(A)|
+  So: |(A)| = n!/(k!(n-k)!)			    |(k)|
+      |(k)|
+- Define (n) = n!/(k!(n-k)!) for 0 ≤ k ≤ n.
+	 (k) "n choose k" (# ways of choosing k elements out of n elements)
+  (n k) = 0 if k > n.
+  (n k) is a *binomial coefficient*.
+- Binomial Theorem: (for all)x,y E R, n E N, (x + y)^n = (sum from i = 0 to n)
+  		    (n i)(x^i)(y^n-i)
+- Fact: For n ≥ 0:
+  1) (n 0) = (n n) = 1
+  2) For n > 0 && 0 < k < n: (n k) = (n-1 k) + (n-1 k-1)
+  ~ These two equations uniquely define (n k) for all 0 ≤ k ≤ n.
