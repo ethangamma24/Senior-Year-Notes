@@ -1,0 +1,48 @@
+Proof by Induction
+- Simple Induction
+  ~ Let S(n) be an assertion about n E N. If you can establish that
+    1) S(0) and 2) For every n E N, assuming S(n) holds, you can infer
+    that S(n + 1) holds. Then, conclude that S(n) holds for all n E N.
+    * Base case does not have to start at 0, but for S(k), you can only make
+      assumptions and conclusions for n ≥ k.
+- Proposition: For all n ≥ 0, (sigma i=1 to n)i = n(n + 1)/2
+  ~ Proof: By induction, let S(n) <--> (sigma i=1 to n)i = n(n + 1)/2.
+           n = 0. S(0) says (sigma i=1 to 0)i = 0(0 + 1)/2 = 0.
+	   Inductive case: For n ≥ 0, assume S(n). (**Inductive Hypothesis**)
+    * Want to show S(n+1): (sigma i=1 to n + 1)i = n + 1 + (sigma i=1 to n)i
+                           = n + 1 + n(n+1)/2
+      - Using Inductive Hypothesis.
+  ~ By induction, S(n) holds for all n E N.
+
+- Define for all n,k E N such that 0 ≤ k ≤ n, function C(n,k) by the
+  following recursive definition.
+  ~ Definition: For all n E N:
+    1) C(n,0) := C(n,n) = 1
+    2) If 0 < k < n, then C(n,k) := C(n - 1,k - 1) + C(n - 1,k)
+  ~ Proposition 1: For all 0 ≤ k ≤ n, C(n,k) is the number of k-element
+		   subsets of [n] (={1,...,n})
+    * Proof: By induction on n. n = 0: C(0,0) = 1 (by definition).
+	     There is 1 0-element subset of [0] (ø).
+	     Inductive Case: n ≥ 0 arbitrary. Assume (ind. hyp.) that:
+	     S(n) := "C(n,k) is the number of k-element subsets of [n],
+	     for all 0 ≤ k ≤ n." We want S(n + 1). Consider [n + 1] =
+	     {1,2,3,...,n,n + 1} = [n] U {n + 1}. Need to show for all
+	     0 ≤ k ≤ n + 1: 
+	       k = 0: ø c [n + 1] (only one, so C(n + 1,0) = 
+                 1 0-element subset).
+	       k = n + 1: [n + 1] c [n + 1], only subset, so there is only
+	         1 (n + 1)-element subsets.
+	       0 < k < n + 1: In all, there are C(n,k - 1) + C(n,k) ways
+	         of choosing k elements from [n + 1]. But C(n + 1,k) ==
+	         the above sum.
+	     THEREFORE: S(n) for all n E N.
+  ~ Proposition 2: C(n,k) = n!/(k!(n - k)!)
+    * Proof: Show that (n k) = n!/(k!(n - k)!) satisfies same inductive
+	     definition as C(n,k).
+	     (n 0) = n!/(0!(n - 0)!) = n!/n! = 1 = C(n,0)
+	     (n n) = n!/(n!(n - n)!) = n!/(n!0!) = 1 = C(n,n)
+	     (n k) = (n - 1 k - 1) + (n - 1 k) = a bunch of shit that would take forever for me to type.
+- (n + k - 1) ways to put n identical balls into k labeled bins.
+  (k - 1    )
+
+
