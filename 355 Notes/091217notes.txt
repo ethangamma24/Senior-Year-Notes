@@ -1,0 +1,76 @@
+Strong Induction & Minimality Principle
+
+- Strong Induction (on N):
+  ~ Let S(n) be a property of n E N. If, for all n, you can prove S(n)
+    assuming S(j) for all j < n, then you can conclude that S(n) holds
+    for all n.
+    * n = 0 : S(0)
+      n = 1 : S(1) given S(0)
+      n = 2 : S(2) given S(0) & S(1)
+      etc.
+
+- Minimality Principle:
+  ~ Every nonempty subset of N has a least element ("N is well-ordered").
+
+- Division Algorithm:
+  ~ Fix some d E Z^+. For every a E N, there exist q,r E N such that
+    a = qd + r and r < d.
+    * q = quotient, r = remainder, d = divisor.
+  ~ Proof: Fixing d > 0, assume that there is some a E N such that no such
+	   q and r exist. So by minimality (well-ordering), there is a
+	   least such a. So let a be least such that no q,r exist.
+    1) a ≥ d, for if a < d, then a = 0*d + a (so q = 0 && r = a works).
+    2) Let a' = a - d. Have 0 ≤ a' < a. By minimality of a, there exists
+       q',r E N such that a' = q'd + r and r < d. But then a = a' + d
+       = q'd + r + d = (q' + 1)d + r. Set q = q' + 1; gives q,r for a.
+       Therefore, no such a can exist.
+
+- Theorem (Pythagoreans):
+  ~ There is no rational number q such that q^2 = 2.
+  ~ Proof: Assume there exist a,b E Z such that (a/b)^2 = 2. WLOG (Without
+	   Loss of Generality), a,b > 0. Let b be least such that there exists
+	   a E N with (a/b)^2 = 2. Then, (a/b)^2 = a^2/b^2 = 2.
+	   Therefore: a^2 = 2b^2, a^2 is even, a is even, a = 2k for some
+	   integer k > 0. (2k)^2 = 2b^2. 4k^2 = 2b^2. 2k^2 = b^2. Therefore:
+	   b is even. Thus, b = 2l for some integer l > 0. But now,
+	   2 = (a/b)^2 = (2k/2l)^2 = (k/l)^2. But, l = b/2 < b, contradicting
+	   the "leastness" of b. Therefore: no such a,b exist.
+
+Minimality --> Strong Induction
+
+- Let S(n) be a boolean predicate of n E N, such that for all j < n, where
+  S(j) is true, S(n) holds. We want that S(n) holds for all n E N.
+  Assume not. Then let X := {n E N : (does not hold) S(n)}. 
+  X != ø by assumption. By minimality, there is a least element n E X. 
+  But then, since n E X, (does not hold) S(n) and all j < n are not elements
+  of X, therefore S(j) for all j < n. But this violates the implication,
+  for this particular n, which is a contradiction. Therefore, S(n) holds for
+  all n E N.
+
+Strong Induction --> Minimality
+
+- Fix some set X c N with no least element. We will show that X = ø.
+  For n E N, let S(n) := "n !E X". Given any n E N, assume that S(j) holds
+  for all j E N such that j < n. I.e.: j !E X for all j < n. But then n !E X
+  either, because otherwise, n would be the least element of X (assumed not
+  to exist). Therefore: S(n) follows. Thus, we have (for all) j < n,
+  S(j) --> S(n) for all n. Therefore: by Strong Induction, S(n) is true for
+  all n E N, i.e: x = ø.
+
+DONE WITH DISCRETE MATH THANK HEAVENS
+
+Finite Automata & Regular Languages
+-----------------------------------
+
+An *alphabet* is any nonempty finite set. If (sigma) is an alphabet, we call
+elements of (sigma) *symbolds* or *characters* (or *letters*).
+A string over alphabet (sigma) is a finite sequence of symbols drawn
+from (sigma).
+- Ex: (sigma) = {a,b,c,d}. "cab", "cad", "abbacadabba", "aaaa", "d",
+      "(epsilon)". ((epsilon) denotes the empty string, length 0.)
+      x is a string of length n. x = x1,x2,...,xn where x1...xn E (sigma).
+      n = |x| (length of x). Can view x as a function x : [n] --> (sigma)
+      where i ----> xi. x(i) = xi. x = cab : [3] --> {a,b,c,d}.
+- Definition: (sigma)* is the set of all strings over (sigma). For all strings
+	      x,y E (sigma)* form the string xy E (sigma)* such that, if
+	      x = x1..xn, y = y1..yn, then xy = z where z is the sum of x & y.
