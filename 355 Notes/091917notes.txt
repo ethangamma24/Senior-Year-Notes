@@ -1,0 +1,52 @@
+Fix alphabet (sigma). A string (over (sigma)) is a finite sequence of
+symbols drawn from (sigma). Let (sigma)* be the set of all strings over
+(sigma). if x,y,z E (sigma)* |x| denotes the length of x.
+- xy: concatenation of x & y.
+
+- Concatenation is associative.
+  ~ (xy)z = x(yz) = xyz
+  ~ x = abc, y = da, z = c
+    * xyz = abcdac
+
+- (epsilon) denotes the string of length 0, called the empty string.
+  ~ NOT IN THE ALPHABET, NOT IN (sigma).
+  ~ x(epsilon) = (epsilon)x = x
+  ~ So, (epsilomn) is the identity under concatenation.
+
+- Definition: A *language* (over (sigma)) is any arbitrary subset of (sigma)*
+	      i.e.: any subset of strings over (sigma).
+  ~ Let L be a language L c (sigma)*.
+  ~ Can think of L as a decision problem: "Given a string x as input,
+    is x in L?" Conversely, L is the set of input strings for which the
+    answer is "yes".
+
+- (sigma)* = {0,1} : binary alphabet.
+  ~ x E {0,1}* is a binary string.
+  ~ Let L = {x E (sigma)* : x ends with 0}
+    * Corresponding decision problem: "Given a binary string x, does x end
+      with 0?"
+  ~ SEE STATE DIAGRAMS IN TEXTBOOK OR ONLINE
+  ~ L2 = {x E (sigma)* : x starts with 0}
+    * Beginning state points to an accepting state if it is 0, and
+      a second rejecting state if it is 1. Both states have self-edges
+      with 0,1.
+    * States with no outgoing edges to other states are called
+      "dead states".
+  ~ Initial state must always be rejecting because of (epsilon).
+  
+- Let A be an "automaton". Let x be a string. Say that A accepts x if
+  reading x from the start state of A lands in an accepting state.
+  Otherwise, A rejects x.
+- Define L(A) := {x E (sigma) : A accepts x} (language recognized by A)
+
+- Ex:
+  ~ (sigma) = {a,b,c}
+  ~ L4 := {x E (sigma)* : x has an a follwed by a b, followed by a c 
+           somewhere, not necessarily continuously.}
+
+- Definition: A deterministic finite automaton (DFA) is a 5-tuple
+  	      (Q,(sigma),(delta), q0, F) where Q is a finite set,
+	      (sigma) is an alphabet, q0 E Q (the start state),
+	      F c Q (states in F are accepting states),
+	      (delta) : Q x (sigma) --> Q
+  ~ Elements of Q are states.
