@@ -1,0 +1,44 @@
+- ∂
+  ~ (q)----a---->(r) means ∂(q,a) = r
+
+SEE NOTES IN 3 RING NOTEBOOK
+
+- Extend ∂ to a function
+  ~ ∂^ : Q x ∑* --> Q
+  ~ x = abc, x = a
+    (q) --a-->(r)--b-->(s)--c-->(t)
+    ∂^(q,x) = t
+    ∂^(q,a) = ∂(q,a)
+
+- Inductive(recursive) definition of ∂^(q,x):
+  ~ By induction on the string length |x|, For all q E Q:
+      length 0: x = (epsilon). ∂^(q,(epsilon)) = q.
+      length n+1 (n ≥ 0): let x have length n+1. Write x = wa for some unique
+      a E ∑ and unique w E ∑*. Note: |w| = n.
+  ~ Define:
+    * ∂^(q,x) = ∂^(q,wa) := ∂(∂^(q,w),a)
+
+- Let D = (Q,∑,∂,q0,F) be a DFA and let w E ∑ be any string over ∑.
+  We say D accepts w <-> ∂^(q0,w) E F.
+
+- Proposition:
+  ~ D as before. For any q E Q, and any x,y E ∑*, ∂^(q,xy) = ∂^(∂^(q,x),y)
+
+- Definition: x,y E ∑*
+  ~ Say that x is a *prefix* of y <-> (some) z E ∑*, y = xz.
+  ~ Say x is a *suffix* of y <-> (some) z E ∑*, y = zx.
+  ~ x is a *substring* of y <-> (some) z, w E ∑*, y = wxz.
+
+- Two constructions on DFAs:
+  1) Let A = (Q,∑,∂,q0,F).
+     ~ Define: (7)A := (Q,∑,∂,q0,Q-F).
+     ~ Easy: (all) x E ∑*, A accepts x <-> ∂^(q0,x) E F <-> ∂^(q0,x) !E Q - F
+       <-> (7)A rejects x.
+  2) A as before, B = (Q',∑,∂',q0',F') is a DFA over the same alphabet.
+     ~ Define: A ^ B := (QxQ',∑,∆,(q0,q0'),FxF'), where (all) q E Q,
+	       q' E Q', a E ∑, define:
+	         ∆((q,q'),a) = (∂(q,a),∂'(q',a))
+
+- Claim: L(A ^ B) = L(A) ^ L(B)
+  ~ ∑ = {0,1}, L1 = {x | x has odd # of 0s}, L2 = {x | x has even # of 1s},
+    L = L1 ^ L2 = x | x has odd 0's & even 1s}
