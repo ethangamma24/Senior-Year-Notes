@@ -1,0 +1,11 @@
+Unity Notes
+
+- Uses component based design
+  ~ GameObject: think of it as a bucket that you dump things into.
+    * Model
+    * Health
+    * Physics
+    * Transform
+    * Collider
+    * Animation/Particle
+  ~ The engine compiles and runs all of these at the same time.
