@@ -1,0 +1,37 @@
+∂ MEANS STRINGS OF LENGTH 1
+∂^ MEANS STRINGS OF LENGTH GREATER THAN 1 I THINK
+
+
+- Theorem: Let A & B be DFAs over alphabet ∑. Then L(A ^ B) = L(A) ^ L(B).
+  ~ Proof: Let (A|B) = (Q_(A|B)_, ∑, ∂_(A|B)_, q0_(A|B)_, F_(A|B)_).
+	   Then, A ^ B = (Q_A_xQ_B_, ∑, ∂, (q0_A_q0_B_), F_A_xF_B_)
+	   where, for any q E Q_A_, r E Q_B_, and q E ∑, ∂((q,r),a)
+	   = (∂_A_(q,a),∂_B_(r,a)).
+  ~ Lemma: For any string w E ∑*, ∂^(q0,w) = (∂_A_^(q0_A_,w),∂_B_^(q0_B_,w)).
+    * Proof: By induction on |w|.
+      Case 1) |w| = 0. So w = (epsilon). (Insert lemma above with epsilon
+	      instead of w).
+      Case 2) |w| > 0. Write w = xa for unique x E ∑*, a E ∑.
+	      ∂^(q0,w) = ∂^(q0,xa) = ∂(∂^(q0,x),a)
+	      = ∂((∂_A_^(q0_A_,x),∂^_B_(q0_B_,x)),a)
+	      = (∂_A_(∂_A_^(q0,A,x),a),∂_B_(∂_B_(∂_B_^(q0,B,x),a))
+	      = (∂_A_^(q0,A,xa),∂_B_^(q0,B,xa))
+	      = (∂_A_^(q0,A,w),∂_B_^(q0,B,w)).
+  ~ Finishing proof of theorem:
+    * For any string w E ∑*, w E L(A ^ B) <_> A ^ B accepts w
+      <-> ∂^(q0,w) E F_A_xF_B_ <-> (∂_A_^(q0,A,w),∂_B_^(q0,B,w)) E F_A_xF_B_
+      <-> ∂_A_^(q0,A,w) E F_A_ && ∂_B_^(q0,B,w) E F_B_
+      <-> A accepts w && B accepts w <-> w E L(A) && w E L(B)
+  ~ So, L(A ^ B) == L(A) ^ L(B)
+
+Text Search
+
+- Fix a string s E ∑* (search string).
+  * Given input w E ∑*. We want to know whether s is a substring of w,
+    solved by DFA.
+  * SEE NOTEBOOK
+
+Nondeterminism
+
+- Nondeterministic Finite Automaton (NFA)
+  * SEE NOTEBOOK HOLY SHIT JUST LOOK AT THE FUCKING NOTEBOOK
