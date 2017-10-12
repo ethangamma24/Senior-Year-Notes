@@ -1,0 +1,43 @@
+Regexes (cont.)
+
+- Recall: (Fix alphabet ∑).
+  * A regex over ∑ as either:
+    ø
+    a (for any a E ∑) (same as {a})
+      ~ Atoms
+    r v s (for r,s regexes) (the book reads this as r + s, or r|s)
+    rs (concatenation)
+    r* (Kleene closure)
+  * Use parentheses for grouping as usual:
+    ~ * - highest precedence
+      concat - lower (also associative)
+      + - lowest (communative and associative)
+    ~ Ex: ((a+b)*)c = {(epsilon),c,ac,bc,aac,abc,bac,bbc,...}
+      - All possible strings of a's and b's followed by a c.
+    ~ Ex: a* + (ba)* = {(epsilon),a,aa,aaa,...,ba,baba,bababa,...}
+    ~ Ex: 010* = {(epsilon),01,010,0100,01000,...}
+
+Buckle your seatbelt pal
+
+- Know: Every regex denotes a regular language:
+  * regex --> equivalent (epsilon) NFA;
+    ø (start state with no transitions)
+    a (start state with an "a" transition to an accepting state)
+    ~ Atomic expressions
+    r + s (start state with (epsilon) moves to (epsilon) NFAs for r and s)
+    rs (clean (epsilon) NFA for r who's accepting state becomes rejecting,
+        and epsilon moves to the start state of (epsilon) NFA for s)
+    r* (clean (epsilon) NFA for r which has an epsilon move from accepting
+        start state to beginning of transitions for r)
+
+- Theorem: If L is recognized by an (epsilon) NFA, then there is a regex for L
+
+- Proof:
+  * Clean (epsilon) NFA --> equivalent regex
+  * Def: A generalized finite automaton (GFA or GNFA) has a transition diagram
+         as with an (epsilon) NFA, but now the edges are labeled by any
+         regexes, and at most one edge from any one state to another.
+    ~ Ex: See notebook
+  * Def: (regex)
+    (epsilon) denotes {(epsilon)}, and = ø* (shorthand)
+    ~ See notebook
